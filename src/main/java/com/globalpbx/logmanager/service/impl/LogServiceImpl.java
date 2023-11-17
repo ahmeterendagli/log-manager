@@ -53,7 +53,7 @@ public class LogServiceImpl implements LogService {
 
 
     @Scheduled(fixedRate = 10000) // Runs every 10 seconds
-    public void mailSendAndTransferDatabase() throws JsonProcessingException {
+    public void processLogsFromQueue() throws JsonProcessingException {
         while (true) {
             String log = processQueue();
             if (log == null) {
